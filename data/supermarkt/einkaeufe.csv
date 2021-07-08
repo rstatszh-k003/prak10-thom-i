@@ -1,0 +1,10 @@
+kunden_id,produkt_name,einkauf,einheit
+k1,Chips,2,anzahl
+k1,Milch,3,anzahl
+k1,Avocado,1,anzahl
+k2,Pfirsich,2.5,kg
+k2,Birne,0.5,kg
+k2,Apfel,2,kg
+k2,Tomate,1.5,kg
+k2,Pfirsich,1,kg
+k2,Milch,4,anzahl
