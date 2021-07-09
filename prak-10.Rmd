@@ -44,6 +44,10 @@ library(gt)        # Package wird für Funktion gt() geladen
 
 ```{r}
 
+einkaeufe <- read.csv("data/supermarkt/einkaeufe.csv")
+kundenprofile <- read.csv("data/supermarkt/kundenprofile.csv")
+preise <- read.csv("data/supermarkt/preise.csv")
+
 ```
 
 2. Strick das Dokument und dann: git add, commit, push alle Veränderung zurück auf GitHub
@@ -55,7 +59,13 @@ library(gt)        # Package wird für Funktion gt() geladen
 3. Nutze andere Funktionen die dir bekannt sind um die drei Dataframes zu erkunden
 
 ```{r}
+names(einkaeufe)
+names(kundenprofile)
+names(preise)
 
+nrow(einkaeufe)
+nrow(kundenprofile)
+nrow(preise)
 
 ```
 
@@ -94,6 +104,8 @@ preise %>%
 
 ```{r}
 
+einkaeufe_preise <- einkaeufe %>%
+  left_join(preise)
 
 ```
 
@@ -105,6 +117,8 @@ preise %>%
 
 ```{r}
 
+einkaeufe_kosten <- einkaeufe_preise %>% 
+  mutate(kosten = einkauf*preis)
 
 ```
 
@@ -116,9 +130,9 @@ preise %>%
 ```{r, eval=FALSE}
 
 einkaeufe_kosten_sum <- einkaeufe_kosten %>% 
-  group_by(___) %>% 
-  ___(
-    summe = ___
+  group_by(kunden_id) %>% 
+  summarise(
+    summe = sum(kosten)
   )
 
 ```
